@@ -1,6 +1,7 @@
 # PDF Preview plugin for FilePond 
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Adri-Glez/filepond-plugin-pdf-preview/blob/master/LICENSE)
+[![npm version](https://badge.fury.io/js/filepond-plugin-pdf-preview.svg)](https://www.npmjs.com/package/filepond-plugin-pdf-preview)
 
 The PDF Preview plugin is a Extenxion of FilePond that will render a small preview when the uploaded file is of type PDF. It will use the browser native renderer.
 
