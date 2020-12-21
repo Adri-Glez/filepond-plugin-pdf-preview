@@ -1,0 +1,57 @@
+{
+  "name": "filepond-plugin-pdf-preview",
+  "version": "1.0.2",
+  "description": "Pdf preview Plugin for FilePond",
+  "license": "MIT",
+  "author": "Adrian Glez",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adri-Glez/filepond-plugin-pdf-preview.git"
+  },
+  "main": "dist/filepond-plugin-pdf-preview.js",
+  "browser": "dist/filepond-plugin-pdf-preview.js",
+  "module": "dist/filepond-plugin-pdf-preview.esm.js",
+  "browserslist": [
+    "last 1 version and not Explorer 10",
+    "Explorer 11",
+    "iOS >= 9",
+    "Android >= 4.4"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "npx rollup -c -w",
+    "build": "npm run scripts | npm run styles | npm run copy",
+    "scripts": "npx rollup -c",
+    "styles": "npm run styles:pretty && npm run styles:nano",
+    "styles:pretty": "cat src/css/* | npx node-sass | npx postcss --no-map --use autoprefixer | npx prettier --single-quote --parser css | node banner-cli.js FilePondPluginPdfPreview > dist/filepond-plugin-pdf-preview.css",
+    "styles:nano": "cat src/css/* | npx node-sass | npx postcss --no-map --use autoprefixer --use cssnano | node banner-cli.js FilePondPluginPdfPreview > dist/filepond-plugin-pdf-preview.min.css",
+    "copy": "cp -r src/images/ dist/images"
+  },
+  "peerDependencies": {
+    "filepond": ">=4.x <5.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "autoprefixer": "^9.8.6",
+    "cssnano": "^4.1.10",
+    "node-sass": "^5",
+    "postcss-cli": "7.1.1",
+    "prettier": "^2.1.1",
+    "rollup": "^2.26.8",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-license": "^2.2.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-prettier": "^2.1.0",
+    "rollup-plugin-terser": "^7.0.1",
+    "dot-prop": ">=4.2.1",
+    "lodash": ">=4.17.19"
+  },
+  "bugs": {
+    "url": "https://github.com/Adri-Glez/filepond-plugin-pdf-preview/issues"
+  },
+  "homepage": "https://github.com/Adri-Glez/filepond-plugin-pdf-preview#readme"
+}
