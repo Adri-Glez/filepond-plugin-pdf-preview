@@ -4,7 +4,7 @@
 
 The PDF Preview plugin is a Extenxion of FilePond that will render a small preview when the uploaded file is of type PDF. It will use the browser native renderer.
 
-<img src="https://github.com/Adri-Glez/filepond-plugin-pdf-preview/blob/master/recDemoFullPage2.gif?raw=true" width="508" alt=""/>
+<img src="https://raw.githubusercontent.com/Adri-Glez/filepond-plugin-pdf-preview/main/recDemoPdfFullPage2.gif" width="508" alt=""/>
 
 ## Quick Start
 
