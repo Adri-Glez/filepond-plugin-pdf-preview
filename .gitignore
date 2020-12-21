@@ -1,0 +1,14 @@
+npm-debug.log
+node_modules/
+.idea/
+_site
+.sass-cache
+*.scssc
+*.swp
+# Visual Studio cache/options directory
+.vs/
+# visual Studio Code
+.vscode/
+.stfolder/
+.scannerwork/
+mio/

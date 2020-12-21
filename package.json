@@ -11,6 +11,19 @@
   "main": "dist/filepond-plugin-pdf-preview.js",
   "browser": "dist/filepond-plugin-pdf-preview.js",
   "module": "dist/filepond-plugin-pdf-preview.esm.js",
+  "keywords": [
+    "javascript",
+    "file",
+    "upload",
+    "drag",
+    "drop",
+    "browse",
+    "paste",
+    "image",
+    "preview",
+    "filepond",
+    "pdf"
+  ],
   "browserslist": [
     "last 1 version and not Explorer 10",
     "Explorer 11",
@@ -53,5 +66,8 @@
   "bugs": {
     "url": "https://github.com/Adri-Glez/filepond-plugin-pdf-preview/issues"
   },
-  "homepage": "https://github.com/Adri-Glez/filepond-plugin-pdf-preview#readme"
+  "homepage": "https://github.com/Adri-Glez/filepond-plugin-pdf-preview#readme",
+  "dependencies": {
+    "filepond": "^4.25.1"
+  }
 }
