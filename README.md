@@ -60,7 +60,7 @@ document.body.appendChild(pond.element);
 
 The preview will become active when uploading a PDF file.
 
-## Changue the defaults
+## Change the defaults
 
 If you want you can change the defaults for this plugin
 
