@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Adri-Glez/filepond-plugin-pdf-preview/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/filepond-plugin-pdf-preview.svg)](https://www.npmjs.com/package/filepond-plugin-pdf-preview)
 
-The PDF Preview plugin is a Extenxion of FilePond that will render a small preview when the uploaded file is of type PDF. It will use the browser native renderer.
+The PDF Preview plugin is an Extenxion of FilePond that will render a small preview when the uploaded file is of type PDF. It will use the browser native renderer.
 
 <img src="https://raw.githubusercontent.com/Adri-Glez/filepond-plugin-pdf-preview/main/recDemoPdfFullPage2.gif" width="508" alt=""/>
 
@@ -14,12 +14,13 @@ Install using npm:
 ```bash
 npm install adriglez/filepond-plugin-pdf-preview
 ```
-or install using Yarn:
+
+Or install using Yarn:
 
 ```bash
 yarn add adriglez/filepond-plugin-pdf-preview
 ```
-or using a CDN refernce:
+Or using a CDN refernce:
 
 ```js
 https://unpkg.com/filepond-plugin-pdf-preview/dist/filepond-plugin-pdf-preview.min.js
