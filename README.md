@@ -61,7 +61,7 @@ The preview will become active when uploading a PDF file.
 
 ## Changue the defaults
 
-If you want you can changue the defaults for this plugin
+If you want you can change the defaults for this plugin
 
 in the javascript  
 ```js
@@ -71,7 +71,7 @@ pond.setOptions({
     pdfComponentExtraParams: 'toolbar=0&view=fit&page=1'            
  });
 ```
-or  in the html with the 'data-' atributes in the html tag
+or in the html with the 'data-' atributes in the html tag
 ```html
 <input type="file"         
     data-pdf-preview-height="320"  
