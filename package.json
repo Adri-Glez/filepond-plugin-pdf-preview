@@ -1,12 +1,12 @@
 {
   "name": "filepond-plugin-pdf-preview",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Pdf preview Plugin for FilePond",
   "license": "MIT",
   "author": "Adrian Glez",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Adri-Glez/filepond-plugin-pdf-preview.git"
+    "url": "https://github.com/Adri-Glez/filepond-plugin-pdf-preview.git"
   },
   "main": "dist/filepond-plugin-pdf-preview.js",
   "browser": "dist/filepond-plugin-pdf-preview.js",
