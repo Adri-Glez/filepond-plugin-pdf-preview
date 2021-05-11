@@ -12,13 +12,13 @@ The PDF Preview plugin is an Extenxion of FilePond that will render a small prev
 Install using npm:
 
 ```bash
-npm install adriglez/filepond-plugin-pdf-preview
+npm install filepond-plugin-pdf-preview
 ```
 
 Or install using Yarn:
 
 ```bash
-yarn add adriglez/filepond-plugin-pdf-preview
+yarn add filepond-plugin-pdf-preview
 ```
 Or using a CDN refernce:
 
