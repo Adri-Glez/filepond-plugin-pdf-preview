@@ -1,5 +1,5 @@
 {
-  "name": "filepond-plugin-pdf-preview",
+  "name": "@yaameen/filepond-plugin-pdf-preview",
   "version": "1.0.4",
   "description": "Pdf preview Plugin for FilePond",
   "license": "MIT",
