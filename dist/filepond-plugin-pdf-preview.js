@@ -21,11 +21,13 @@
 
   
   const createPdfView = (_) =>
-    _.utils.createView({
-      name: 'pdf-preview',
-      tag: 'div',
-      ignoreRect: true,
-      create: ({ root, props }) => {
+
+  
+  _.utils.createView({
+    name: 'pdf-preview',
+    tag: 'div',
+    ignoreRect: true,
+    create: ({ root, props }) => {
         // get item
         const item = root.query('GET_ITEM', {
           id: props.id,
@@ -48,6 +50,9 @@
       write: _.utils.createRoute({
         DID_PDF_PREVIEW_LOAD: ({ root, props }) => {
           const { id } = props; 
+
+          const numPdfPreviewHeight = root.query('GET_PDF_PREVIEW_HEIGHT');          
+
           // get item
           const item = root.query('GET_ITEM', {
             id: id,
