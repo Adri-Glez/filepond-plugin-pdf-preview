@@ -70,7 +70,7 @@
               if (isPreviewablePdf(item.file)) {
                 root.dispatch('DID_UPDATE_PANEL_HEIGHT', {
                   id: id,
-                  height: root.ref.pdf.scrollHeight,
+                  height: numPdfPreviewHeight,
                 });
               }
             },
