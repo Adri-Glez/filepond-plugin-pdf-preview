@@ -68,19 +68,14 @@
             root.ref.pdf.data = URL.createObjectURL(blob) + ((!sPdfComponentExtraParams)?"":("#?"+sPdfComponentExtraParams));
           }
           //else root.ref.pdf.src = URL.createObjectURL(blob);
+          // alert('Foahbe!')
 
-          root.ref.pdf.addEventListener(
-            'load',
-            () => {
-              if (isPreviewablePdf(item.file)) {
-                root.dispatch('DID_UPDATE_PANEL_HEIGHT', {
-                  id: id,
-                  height: numPdfPreviewHeight,
-                });
-              }
-            },
-            false
-          );
+          if (isPreviewablePdf(item.file)) {
+            root.dispatch('DID_UPDATE_PANEL_HEIGHT', {
+              id: id,
+              height: numPdfPreviewHeight,
+            });
+          }
         },
       }),
     });
