@@ -52,7 +52,7 @@ const plugin = (fpAPI) => {
           const item = query("GET_ITEM", id);
 
           // don't do anything while not an PDF
-          if (
+          if ( item === null ||
             ( !isPreviewablePdf(item.file) ) ||
             root.rect.element.hidden
           )
