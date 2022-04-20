@@ -1,7 +1,7 @@
 /*!
- * FilePondPluginPdfPreview 1.0.2
+ * FilePondPluginPdfPreview 1.0.4
  * Licensed under MIT, https://opensource.org/licenses/MIT/
- * Please visit undefined for details.
+ * Please visit https://github.com/Adri-Glez/filepond-plugin-pdf-preview#readme for details.
  */
 
 /* eslint-disable */
@@ -19,7 +19,6 @@
 
   const isPreviewablePdf = (file) => /pdf$/.test(file.type);
 
-  
   const createPdfView = (_) =>
     _.utils.createView({
       name: 'pdf-preview',
@@ -32,23 +31,25 @@
         });
 
         if (isPreviewablePdf(item.file)) {
-          const numPdfPreviewHeight = root.query('GET_PDF_PREVIEW_HEIGHT');          
+          const numPdfPreviewHeight = root.query('GET_PDF_PREVIEW_HEIGHT');
           root.ref.pdf = document.createElement('object');
           root.ref.pdf.setAttribute('height', numPdfPreviewHeight);
-          root.ref.pdf.setAttribute('width', "100%");//320
+          root.ref.pdf.setAttribute('width', '100%'); //320
+
           root.ref.pdf.setAttribute(
             'style',
             'position:absolute;left:0;right:0;margin:auto;padding-top:unset;' +
-            ((numPdfPreviewHeight) ? ('height:' + numPdfPreviewHeight + 'px;') : '') 
-                 
+              (numPdfPreviewHeight
+                ? 'height:' + numPdfPreviewHeight + 'px;'
+                : '')
           );
           root.element.appendChild(root.ref.pdf);
-        } 
+        }
       },
       write: _.utils.createRoute({
         DID_PDF_PREVIEW_LOAD: ({ root, props }) => {
-          const { id } = props; 
-          // get item
+          const { id } = props; // get item
+
           const item = root.query('GET_ITEM', {
             id: id,
           });
@@ -58,11 +59,17 @@
             type: item.file.type,
           });
           root.ref.pdf.type = item.file.type;
+
           if (isPreviewablePdf(item.file)) {
-            const sPdfComponentExtraParams = root.query('GET_PDF_COMPONENT_EXTRA_PARAMS');
-            root.ref.pdf.data = URL.createObjectURL(blob) + ((!sPdfComponentExtraParams)?"":("#?"+sPdfComponentExtraParams));
-          }
-          //else root.ref.pdf.src = URL.createObjectURL(blob);
+            const sPdfComponentExtraParams = root.query(
+              'GET_PDF_COMPONENT_EXTRA_PARAMS'
+            );
+            root.ref.pdf.data =
+              URL.createObjectURL(blob) +
+              (!sPdfComponentExtraParams
+                ? ''
+                : '#?' + sPdfComponentExtraParams);
+          } //else root.ref.pdf.src = URL.createObjectURL(blob);
 
           root.ref.pdf.addEventListener(
             'load',
@@ -87,9 +94,7 @@
     const didCreatePreviewContainer = ({ root, props }) => {
       const { id } = props;
       const item = root.query('GET_ITEM', id);
-      if (!item) return;
-
-      // the preview is now ready to be drawn
+      if (!item) return; // the preview is now ready to be drawn
 
       root.dispatch('DID_PDF_PREVIEW_LOAD', {
         id,
@@ -100,9 +105,7 @@
      */
 
     const create = ({ root, props }) => {
-      const pdf = createPdfView(_);
-
-      // append pdf presenter
+      const pdf = createPdfView(_); // append pdf presenter
 
       root.ref.pdf = root.appendChildView(
         root.createChildView(pdf, {
@@ -122,7 +125,7 @@
   };
 
   /**
-   * PDF Preview Plugin
+   * Pdf Preview Plugin
    */
 
   const plugin = (fpAPI) => {
@@ -132,40 +135,31 @@
 
     addFilter('CREATE_VIEW', (viewAPI) => {
       // get reference to created view
-      const { is, view, query } = viewAPI;
-
-      // only hook up to item view
+      const { is, view, query } = viewAPI; // only hook up to item view
 
       if (!is('file')) {
         return;
-      } 
-
-      // create the pdf preview plugin if is pdf
+      } // create the pdf preview plugin, but only do so if is a PDF
 
       const didLoadItem = ({ root, props }) => {
         const { id } = props;
         const item = query('GET_ITEM', id);
 
-        if (
-          !item ||
-          item.archived ||
-          ( !isPreviewablePdf(item.file))
-        ) {
+        if (!item || item.archived || !isPreviewablePdf(item.file)) {
           return;
-        } 
-        // set preview view
-        root.ref.PdfPreview = view.appendChildView(
+        } // set preview view
+
+        root.ref.pdfPreview = view.appendChildView(
           view.createChildView(pdfWrapperView, {
             id,
           })
-        ); 
-        // now ready
+        ); // now ready
+
         root.dispatch('DID_PDF_PREVIEW_CONTAINER_CREATE', {
           id,
         });
-      }; 
+      }; // start writing
 
-      // start writing
       view.registerWriter(
         createRoute(
           {
@@ -173,35 +167,33 @@
           },
           ({ root, props }) => {
             const { id } = props;
-            const item = query('GET_ITEM', id);
-
-           // don't do anything while not an pdf or hidden
+            const item = query('GET_ITEM', id); // don't do anything while not an PDF
 
             if (
-              (!isPreviewablePdf(item.file) ) ||
+              item === null ||
+              !isPreviewablePdf(item.file) ||
               root.rect.element.hidden
             )
               return;
           }
         )
       );
-    }); 
+    }); // expose plugin
 
-    // expose plugin
     return {
       options: {
-        
         allowPdfPreview: [true, Type.BOOLEAN],
-
         // Fixed PDF preview height
         pdfPreviewHeight: [320, Type.INT],
-
         // Extra params to pass to the pdf visulizer
-        pdfComponentExtraParams: ['toolbar=0&navpanes=0&scrollbar=0&statusbar=0&zoom=0&messages=0&view=fitH&page=1', Type.STRING],
+        pdfComponentExtraParams: [
+          'toolbar=0&navpanes=0&scrollbar=0&statusbar=0&zoom=0&messages=0&view=fitH&page=1',
+          Type.STRING,
+        ],
       },
     };
-  }; 
-  // fire pluginloaded event if running in browser, this allows registering the plugin when using async script tags
+  }; // fire pluginloaded event if running in browser, this allows registering the plugin when using async script tags
+
   const isBrowser =
     typeof window !== 'undefined' && typeof window.document !== 'undefined';
 
