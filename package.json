@@ -1,6 +1,6 @@
 {
-  "name": "filepond-plugin-pdf-preview",
-  "version": "1.0.4",
+  "name": "filepond-plugin-pdf-preview-with-types",
+  "version": "1.0.6",
   "description": "Pdf preview Plugin for FilePond",
   "license": "MIT",
   "author": "Adrian Glez",
@@ -31,8 +31,10 @@
     "Android >= 4.4"
   ],
   "files": [
-    "dist"
+    "dist",
+	"types/*.d.ts"
   ],
+  "types": "types/index.d.ts",
   "scripts": {
     "start": "npx rollup -c -w",
     "build": "npm run scripts | npm run styles | npm run copy",
