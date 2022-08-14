@@ -177,7 +177,7 @@
 
            // don't do anything while not an pdf or hidden
 
-            if (
+            if ( !item ||
               (!isPreviewablePdf(item.file) ) ||
               root.rect.element.hidden
             )
